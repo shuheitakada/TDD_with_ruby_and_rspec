@@ -12,4 +12,6 @@ class Dollar
   def equals(other_dollar)
     amount == other_dollar.amount
   end
+
+  protected :amount
 end
