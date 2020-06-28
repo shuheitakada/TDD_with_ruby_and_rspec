@@ -9,7 +9,7 @@ RSpec.describe Dollar do
       let(:product) { five.times(2) }
 
       it '10ドルになる' do
-        expect(product.amount).to eq 10
+        expect(product.equals(Dollar.new(10))).to be true
       end
     end
 
@@ -17,7 +17,7 @@ RSpec.describe Dollar do
       let(:product) { five.times(3) }
 
       it '15ドルになる' do
-        expect(product.amount).to eq 15
+        expect(product.equals(Dollar.new(15))).to be true
       end
     end
   end
