@@ -10,6 +10,6 @@ class Dollar
   end
 
   def equals(other_dollar)
-    true
+    amount == other_dollar.amount
   end
 end
