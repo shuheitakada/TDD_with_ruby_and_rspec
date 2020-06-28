@@ -6,6 +6,6 @@ class Dollar
   end
 
   def times(multiplier)
-    self.amount = amount * multiplier
+    self.amount *= multiplier
   end
 end
