@@ -1,5 +1,5 @@
 # TDD_with_ruby_and_rspec
-Kent Beck著の「テスト駆動開発」のサンプルコードを、RubyとRSpecで書いたものです。
+Kent Beck著の「テスト駆動開発」のサンプルコードを、RubyとRSpecで書き直したものです。（公式ではありませんので、参考程度にお願いします）
 
 # Versions
 ```
