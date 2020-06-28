@@ -6,18 +6,14 @@ RSpec.describe Dollar do
     let(:five) { Dollar.new(5) }
 
     context '5ドルを2倍するとき' do
-      let(:product) { five.times(2) }
-
       it '10ドルになる' do
-        expect(product.equals(Dollar.new(10))).to be true
+        expect(five.times(2).equals(Dollar.new(10))).to be true
       end
     end
 
     context '5ドルを3倍するとき' do
-      let(:product) { five.times(3) }
-
       it '15ドルになる' do
-        expect(product.equals(Dollar.new(15))).to be true
+        expect(five.times(3).equals(Dollar.new(15))).to be true
       end
     end
   end
