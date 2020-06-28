@@ -21,4 +21,10 @@ RSpec.describe Dollar do
       end
     end
   end
+
+  describe '#equals' do
+    it '5ドルは5ドルと等価である' do
+      expect(Dollar.new(5).equals(Dollar.new(5))).to be true
+    end
+  end
 end
