@@ -1,5 +1,6 @@
 class Dollar
   attr_reader :amount
+  protected :amount
 
   def initialize(amount)
     @amount = amount
@@ -12,6 +13,4 @@ class Dollar
   def equals(other_dollar)
     amount == other_dollar.amount
   end
-
-  protected :amount
 end
