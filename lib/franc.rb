@@ -1,4 +1,6 @@
-class Franc
+require 'money'
+
+class Franc < Money
   attr_reader :amount
   protected :amount
 
