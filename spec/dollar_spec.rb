@@ -1,5 +1,6 @@
 require './spec/spec_helper.rb'
 require './lib/dollar.rb'
+require './lib/franc.rb'
 
 RSpec.describe Dollar do
   describe '#times' do
@@ -25,6 +26,12 @@ RSpec.describe Dollar do
 
     it '5ドルは6ドルと等価でない' do
       expect(Dollar.new(5).equals(Dollar.new(6))).to be false
+    end
+
+    context '違う通貨と比較するとき' do
+      it '5ドルと5フランは等価でない' do
+        expect(Dollar.new(5).equals(Franc.new(5))).to be false
+      end
     end
   end
 end
