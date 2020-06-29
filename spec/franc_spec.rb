@@ -17,4 +17,14 @@ RSpec.describe Franc do
       end
     end
   end
+
+  describe '#equals' do
+    it '5フランは5フランと等価である' do
+      expect(Franc.new(5).equals(Franc.new(5))).to be true
+    end
+
+    it '5フランは6フランと等価でない' do
+      expect(Franc.new(5).equals(Franc.new(6))).to be false
+    end
+  end
 end
