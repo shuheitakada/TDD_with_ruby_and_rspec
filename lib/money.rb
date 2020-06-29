@@ -3,6 +3,6 @@ class Money
   protected :amount
 
   def equals(other_money)
-    amount == other_money.amount
+    self.class == other_money.class && amount == other_money.amount
   end
 end
