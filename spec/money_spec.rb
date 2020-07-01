@@ -1,6 +1,5 @@
 require './spec/spec_helper.rb'
-require './lib/dollar.rb'
-require './lib/franc.rb'
+require './lib/money.rb'
 
 RSpec.describe Money do
   describe '#times' do
