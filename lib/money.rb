@@ -24,12 +24,20 @@ class Money
 end
 
 class Dollar < Money
+  def initialize(amount, currency)
+    super
+  end
+
   def times(multiplier)
     Money.dollar(amount * multiplier)
   end
 end
 
 class Franc < Money
+  def initialize(amount, currency)
+    super
+  end
+
   def times(multiplier)
     Money.franc(amount * multiplier)
   end
