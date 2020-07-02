@@ -4,13 +4,10 @@ require './lib/money.rb'
 RSpec.describe Money do
   describe '#times' do
     let(:five_dollar) { Money.dollar(5) }
-    let(:five_franc) { Money.franc(5) }
 
     it 'X倍できる' do
       expect(five_dollar.times(2).equals(Money.dollar(10))).to be true
       expect(five_dollar.times(3).equals(Money.dollar(15))).to be true
-      expect(five_franc.times(2).equals(Money.franc(10))).to be true
-      expect(five_franc.times(3).equals(Money.franc(15))).to be true
     end
   end
 
