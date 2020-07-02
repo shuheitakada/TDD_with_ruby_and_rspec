@@ -19,7 +19,7 @@ class Money
   end
 
   def equals(other_money)
-    self.class == other_money.class && amount == other_money.amount
+    amount == other_money.amount && currency == other_money.currency
   end
 end
 
@@ -29,7 +29,7 @@ class Dollar < Money
   end
 
   def times(multiplier)
-    Money.dollar(amount * multiplier)
+    Money.new(amount * multiplier, currency)
   end
 end
 
@@ -39,6 +39,6 @@ class Franc < Money
   end
 
   def times(multiplier)
-    Money.franc(amount * multiplier)
+    Money.new(amount * multiplier, currency)
   end
 end
