@@ -31,4 +31,11 @@ RSpec.describe Money do
       end
     end
   end
+
+  describe '#currency' do
+    it '単位を表示する' do
+      expect(Money.dollar(5).currency).to eq 'USD'
+      expect(Money.franc(5).currency).to eq 'CHF'
+    end
+  end
 end
