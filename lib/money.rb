@@ -1,5 +1,6 @@
 class Money
   attr_reader :amount
+  attr_reader :currency
   protected :amount
 
   class << self
@@ -22,8 +23,6 @@ class Money
 end
 
 class Dollar < Money
-  attr_reader :currency
-
   def initialize(amount)
     @amount = amount
     @currency = 'USD'
@@ -31,8 +30,6 @@ class Dollar < Money
 end
 
 class Franc < Money
-  attr_reader :currency
-
   def initialize(amount)
     @amount = amount
     @currency = 'CHF'
