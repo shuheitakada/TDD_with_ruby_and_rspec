@@ -25,10 +25,18 @@ class Dollar < Money
   def initialize(amount)
     @amount = amount
   end
+
+  def currency
+    'USD'
+  end
 end
 
 class Franc < Money
   def initialize(amount)
     @amount = amount
+  end
+
+  def currency
+    'CHF'
   end
 end
