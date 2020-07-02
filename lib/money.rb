@@ -22,21 +22,19 @@ class Money
 end
 
 class Dollar < Money
+  attr_reader :currency
+
   def initialize(amount)
     @amount = amount
-  end
-
-  def currency
-    'USD'
+    @currency = 'USD'
   end
 end
 
 class Franc < Money
+  attr_reader :currency
+
   def initialize(amount)
     @amount = amount
-  end
-
-  def currency
-    'CHF'
+    @currency = 'CHF'
   end
 end
