@@ -10,11 +10,11 @@ class Money
 
   class << self
     def dollar(amount)
-      Dollar.new(amount, 'USD')
+      Money.new(amount, 'USD')
     end
 
     def franc(amount)
-      Franc.new(amount, 'CHF')
+      Money.new(amount, 'CHF')
     end
   end
 
@@ -24,17 +24,5 @@ class Money
 
   def equals(other_money)
     amount == other_money.amount && currency == other_money.currency
-  end
-end
-
-class Dollar < Money
-  def initialize(amount, currency)
-    super
-  end
-end
-
-class Franc < Money
-  def initialize(amount, currency)
-    super
   end
 end
