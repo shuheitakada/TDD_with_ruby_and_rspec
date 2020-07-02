@@ -18,6 +18,10 @@ class Money
     end
   end
 
+  def times(multiplier)
+    Money.new(amount * multiplier, currency)
+  end
+
   def equals(other_money)
     amount == other_money.amount && currency == other_money.currency
   end
@@ -27,18 +31,10 @@ class Dollar < Money
   def initialize(amount, currency)
     super
   end
-
-  def times(multiplier)
-    Money.new(amount * multiplier, currency)
-  end
 end
 
 class Franc < Money
   def initialize(amount, currency)
     super
-  end
-
-  def times(multiplier)
-    Money.new(amount * multiplier, currency)
   end
 end
