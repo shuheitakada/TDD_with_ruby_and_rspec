@@ -28,6 +28,10 @@ class Money
   def equals(other_money)
     amount == other_money.amount && currency == other_money.currency
   end
+
+  def reduce(to)
+    self
+  end
 end
 
 class Sum

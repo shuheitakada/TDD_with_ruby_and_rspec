@@ -59,5 +59,11 @@ RSpec.describe Bank do
       result = bank.reduce(sum, 'USD')
       expect(Money.dollar(7).equals(result)).to be true
     end
+
+    it 'Moneyクラスを引数に持つことができる' do
+      bank = Bank.new
+      result = bank.reduce(Money.dollar(1), 'USD')
+      expect(Money.dollar(1).equals(result))
+    end
   end
 end
