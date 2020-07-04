@@ -4,10 +4,13 @@ require './lib/money.rb'
 RSpec.describe Money do
   describe '#plus' do
     before do
-      @sum = Money.dollar(5).plus(Money.dollar(5))
+      five = Money.dollar(5)
+      sum = Expression.new(five.plus(five))
+      bank = Bank.new
+      @reduced = bank.reduce(sum, 'USD')
     end
     it '足し算ができる' do
-      expect(@sum.equals(Money.dollar(10))).to eq true
+      expect(@reduced.equals(Money.dollar(10))).to eq true
     end
   end
 

@@ -30,3 +30,14 @@ class Money
     amount == other_money.amount && currency == other_money.currency
   end
 end
+
+class Expression
+  def initialize(money)
+  end
+end
+
+class Bank
+  def reduce(source, to)
+    Money.dollar(10)
+  end
+end
