@@ -5,7 +5,7 @@ RSpec.describe Money do
   describe '#plus' do
     it '足し算ができる' do
       five = Money.dollar(5)
-      sum = Expression.new(five.plus(five))
+      sum = five.plus(five)
       bank = Bank.new
       reduced = bank.reduce(sum, 'USD')
       expect(reduced.equals(Money.dollar(10))).to eq true
@@ -13,10 +13,8 @@ RSpec.describe Money do
 
     it '#plusはSumのインスタンスを返す' do
       five = Money.dollar(5)
-      result = Expression.new(five.plus(five))
-      sum = Sum.new(result)
-      expect(five.equals(sum.augend))
-      expect(five.equals(sum.addend))
+      sum = five.plus(five)
+      expect(sum.class).to eq Sum
     end
   end
 

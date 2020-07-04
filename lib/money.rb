@@ -19,7 +19,7 @@ class Money
   end
 
   def plus(addend)
-    Money.new(amount + addend.amount, currency)
+    Sum.new(self, addend)
   end
 
   def times(multiplier)
@@ -31,8 +31,13 @@ class Money
   end
 end
 
-class Expression
-  def initialize(money)
+class Sum
+  attr_accessor :augend
+  attr_accessor :addend
+
+  def initialize(augend, addend)
+    @augend = augend
+    @addend = addend
   end
 end
 
