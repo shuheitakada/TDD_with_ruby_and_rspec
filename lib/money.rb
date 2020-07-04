@@ -1,7 +1,6 @@
 class Money
   attr_reader :amount
   attr_reader :currency
-  protected :amount
 
   def initialize(amount, currency)
     @amount = amount
@@ -19,7 +18,7 @@ class Money
   end
 
   def plus(addend)
-    Money.new(amount + addend.amount, currency)
+    Sum.new(self, addend)
   end
 
   def times(multiplier)
@@ -29,15 +28,29 @@ class Money
   def equals(other_money)
     amount == other_money.amount && currency == other_money.currency
   end
+
+  def reduce(to)
+    self
+  end
 end
 
-class Expression
-  def initialize(money)
+class Sum
+  attr_accessor :augend
+  attr_accessor :addend
+
+  def initialize(augend, addend)
+    @augend = augend
+    @addend = addend
+  end
+
+  def reduce(to)
+    amount = augend.amount + addend.amount
+    Money.new(amount, to)
   end
 end
 
 class Bank
   def reduce(source, to)
-    Money.dollar(10)
+    source.reduce(to)
   end
 end

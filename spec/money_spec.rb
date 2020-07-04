@@ -3,14 +3,18 @@ require './lib/money.rb'
 
 RSpec.describe Money do
   describe '#plus' do
-    before do
-      five = Money.dollar(5)
-      sum = Expression.new(five.plus(five))
-      bank = Bank.new
-      @reduced = bank.reduce(sum, 'USD')
-    end
     it '足し算ができる' do
-      expect(@reduced.equals(Money.dollar(10))).to eq true
+      five = Money.dollar(5)
+      sum = five.plus(five)
+      bank = Bank.new
+      reduced = bank.reduce(sum, 'USD')
+      expect(reduced.equals(Money.dollar(10))).to eq true
+    end
+
+    it '#plusはSumのインスタンスを返す' do
+      five = Money.dollar(5)
+      sum = five.plus(five)
+      expect(sum.class).to eq Sum
     end
   end
 
@@ -43,6 +47,23 @@ RSpec.describe Money do
     it '単位を表示する' do
       expect(Money.dollar(5).currency).to eq 'USD'
       expect(Money.franc(5).currency).to eq 'CHF'
+    end
+  end
+end
+
+RSpec.describe Bank do
+  describe '#reduce' do
+    it 'Sumのインスタンスを換算できる' do
+      sum = Sum.new(Money.dollar(3), Money.dollar(4))
+      bank = Bank.new
+      result = bank.reduce(sum, 'USD')
+      expect(Money.dollar(7).equals(result)).to be true
+    end
+
+    it 'Moneyのインスタンスを換算できる' do
+      bank = Bank.new
+      result = bank.reduce(Money.dollar(1), 'USD')
+      expect(Money.dollar(1).equals(result))
     end
   end
 end
