@@ -50,3 +50,14 @@ RSpec.describe Money do
     end
   end
 end
+
+RSpec.describe Bank do
+  describe '#reduce' do
+    it '外貨両替できる' do
+      sum = Sum.new(Money.dollar(3), Money.dollar(4))
+      bank = Bank.new
+      result = bank.reduce(sum, 'USD')
+      expect(Money.dollar(7).equals(result)).to be true
+    end
+  end
+end
