@@ -3,14 +3,20 @@ require './lib/money.rb'
 
 RSpec.describe Money do
   describe '#plus' do
-    before do
+    it '足し算ができる' do
       five = Money.dollar(5)
       sum = Expression.new(five.plus(five))
       bank = Bank.new
-      @reduced = bank.reduce(sum, 'USD')
+      reduced = bank.reduce(sum, 'USD')
+      expect(reduced.equals(Money.dollar(10))).to eq true
     end
-    it '足し算ができる' do
-      expect(@reduced.equals(Money.dollar(10))).to eq true
+
+    it '#plusはSumのインスタンスを返す' do
+      five = Money.dollar(5)
+      result = Expression.new(five.plus(five))
+      sum = Sum.new(result)
+      expect(five.equals(sum.augend))
+      expect(five.equals(sum.addend))
     end
   end
 
