@@ -70,7 +70,7 @@ RSpec.describe Bank do
       bank = Bank.new
       bank.add_rate('CHF', 'USD', 2)
       result = bank.reduce(Money.franc(2), 'USD')
-      expect(Money.franc(1).equals(result)).to be true
+      expect(Money.dollar(1).equals(result)).to be true
     end
   end
 end
