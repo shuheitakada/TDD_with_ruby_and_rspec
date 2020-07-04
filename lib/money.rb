@@ -18,6 +18,10 @@ class Money
     end
   end
 
+  def plus(addend)
+    Money.new(amount + addend.amount, currency)
+  end
+
   def times(multiplier)
     Money.new(amount * multiplier, currency)
   end

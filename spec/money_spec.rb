@@ -2,6 +2,15 @@ require './spec/spec_helper.rb'
 require './lib/money.rb'
 
 RSpec.describe Money do
+  describe '#plus' do
+    before do
+      @sum = Money.dollar(5).plus(Money.dollar(5))
+    end
+    it '足し算ができる' do
+      expect(@sum.equals(Money.dollar(10))).to eq true
+    end
+  end
+
   describe '#times' do
     let(:five_dollar) { Money.dollar(5) }
 
