@@ -52,11 +52,18 @@ class Sum
 end
 
 class Bank
+  def initialize
+    @exchange_rate = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new(0) } }
+  end
+
   def add_rate(from, to, rate)
+    @exchange_rate[from][to] = rate
   end
 
   def rate(from, to)
-    (from == 'CHF' && to == 'USD' ? 2 : 1)
+    return 1 if from == to
+
+    @exchange_rate[from][to]
   end
 
   def reduce(source, to)
