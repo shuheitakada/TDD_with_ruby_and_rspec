@@ -37,8 +37,8 @@ class Money
 end
 
 class Sum
-  attr_accessor :augend
-  attr_accessor :addend
+  attr_reader :augend
+  attr_reader :addend
 
   def initialize(augend, addend)
     @augend = augend
