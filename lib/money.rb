@@ -1,3 +1,5 @@
+require 'active_support/all'
+
 class Money
   attr_reader :amount
   attr_reader :currency
@@ -29,8 +31,8 @@ class Money
     amount == other_money.amount && currency == other_money.currency
   end
 
-  def reduce(to)
-    self
+  def reduce(bank, to)
+    Money.new(amount / bank.rate(currency, to), to)
   end
 end
 
@@ -43,14 +45,21 @@ class Sum
     @addend = addend
   end
 
-  def reduce(to)
+  def reduce(bank, to)
     amount = augend.amount + addend.amount
     Money.new(amount, to)
   end
 end
 
 class Bank
+  def add_rate(from, to, rate)
+  end
+
+  def rate(from, to)
+    (from == 'CHF' && to == 'USD' ? 2 : 1)
+  end
+
   def reduce(source, to)
-    source.reduce(to)
+    source.reduce(self, to)
   end
 end
