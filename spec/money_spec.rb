@@ -60,6 +60,32 @@ RSpec.describe Money do
   end
 end
 
+RSpec.describe Sum do
+  describe '#plus' do
+    it '足し算ができる' do
+      five_bucks = Money.dollar(5)
+      ten_francs = Money.franc(10)
+      bank = Bank.new
+      bank.add_rate('CHF', 'USD', 2)
+      sum = Sum.new(five_bucks, ten_francs).plus(five_bucks)
+      result = bank.reduce(sum, 'USD')
+      expect(result.equals(Money.dollar(15))).to be true
+    end
+  end
+
+  describe '#times' do
+    it '掛け算ができる' do
+      five_bucks = Money.dollar(5)
+      ten_francs = Money.franc(10)
+      bank = Bank.new
+      bank.add_rate('CHF', 'USD', 2)
+      sum = Sum.new(five_bucks, ten_francs).times(2)
+      result = bank.reduce(sum, 'USD')
+      expect(result.equals(Money.dollar(20))).to be true
+    end
+  end
+end
+
 RSpec.describe Bank do
   describe '#reduce' do
     it 'Sumのインスタンスを換算できる' do
