@@ -1,5 +1,3 @@
-require 'active_support/all'
-
 class Money
   attr_reader :amount
   attr_reader :currency
